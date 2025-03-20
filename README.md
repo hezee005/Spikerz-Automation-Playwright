@@ -1,51 +1,56 @@
-# Spikerz Playwright Automation
+# **Spikerz Playwright Automation**  
 
-## Setup
+## **📌 Setup**  
 1. **Clone the repository**  
    ```sh
    git clone https://github.com/hezee005/spikerz-automation.git
-
-2. **Install dependencies**
-    ```sh
-    npm install
-
+   ```
+2. **Install dependencies**  
+   ```sh
+   npm install
+   ```
 3. **Set up environment variables**  
    ```sh
    cp .env.example .env
-
+   ```
 4. **Run tests**  
    ```sh
    npx playwright test
+   ```
 
+---
 
-# **Troubleshooting
+## **🛠 Troubleshooting**  
+- **Test fails intermittently?** → Increase timeouts in `playwright.config.js`.  
+- **Elements not found?** → Run `npx playwright test --debug` and inspect the UI.  
 
-- Test fails intermittently? Increase timeouts in playwright.config.js.
-- Elements not found? Run npx playwright test --debug and inspect the UI.
+---
 
-# **API Documentation
+## **📝 API Documentation**  
 
-- LoginPage.js
-- navigate() → Navigates to login page.
-- login(username, password) → Logs in with given credentials.
-- SocialConnectPage.js
-- navigate() → Navigates to social connect page.
-- connectYouTube(gmailUsername, gmailPassword) → Connects YouTube.
-- grantPermissions() → Selects all permissions.
-- verifyConnection() → Checks for success message.
+### **🔹 LoginPage.js**  
+- `navigate()` → Navigates to login page.  
+- `login(username, password)` → Logs in with given credentials.  
 
+### **🔹 SocialConnectPage.js**  
+- `navigate()` → Navigates to social connect page.  
+- `connectYouTube(gmailUsername, gmailPassword)` → Connects YouTube.  
+- `grantPermissions()` → Selects all permissions.  
+- `verifyConnection()` → Checks for success message.  
 
-# **GitHub Actions Workflow
-Ensure your repository’s GitHub Actions secrets contain the following environment variables:
+---
 
-- `BASE_URL`
-- `SPK_USERNAME`
-- `SPK_PASSWORD`
-- `GMAIL_USERNAME`
-- `SPK_PASSWORD`
+## **🚀 GitHub Actions Workflow**  
 
-Example configuration in the workflow file:
+Ensure your repository’s GitHub Actions secrets contain the following environment variables:  
 
+- `BASE_URL`  
+- `SPK_USERNAME`  
+- `SPK_PASSWORD`  
+- `GMAIL_USERNAME`  
+- `GMAIL_PASSWORD`  
+
+### **Example workflow file:**  
 ```yaml
 name: Playwright Tests
 on:
@@ -84,18 +89,31 @@ jobs:
         retention-days: 30
 ```
 
+---
 
-# **Test Structure
-- `tests/` – Contains all test files
-- `pages/` – Page Object Model (POM) classes for better test maintainability
-- `utils/` – Utility functions, such as authentication helpers
-- `playwright.config.js` – Playwright configuration file
+## **📂 Test Structure**  
+💃 `tests/` → Contains all test files  
+💃 `pages/` → Page Object Model (POM) classes for better test maintainability  
+💃 `utils/` → Utility functions, such as authentication helpers  
+💃 `playwright.config.js` → Playwright configuration file  
 
-## Security Considerations
-- Avoid logging sensitive data
-- Use .env instead of hardcoding credentials
+---
 
-## Error Handling & Debugging
-- Run tests with DEBUG=pw:api npx playwright test to see API calls
-- Check Playwright’s trace viewer with --trace on-first-retry
+## **🔒 Security Considerations**  
+- Avoid logging sensitive data  
+- Use `.env` instead of hardcoding credentials  
 
+---
+
+## **🐞 Error Handling & Debugging**  
+- Run tests with:  
+  ```sh
+  DEBUG=pw:api npx playwright test
+  ```
+  → See API calls for debugging.  
+- Check Playwright’s trace viewer with:  
+  ```sh
+  npx playwright test --trace on-first-retry
+  ```
+
+---
